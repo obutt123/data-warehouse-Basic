@@ -2,16 +2,18 @@
 # -*- coding: utf-8 -*-
 
 def mergesort(array):
+    print("array:", array)
     if len(array) <= 1:
         return array
     
     m = len(array) // 2
+    print("m:", m)
     left = mergesort(array[:m])
     right = mergesort(array[m:])
     
-    return merge(left, right)
-
-def merge(left, right):
+    print("Merging...")
+    print("left:", left)
+    print("right:", right)
     merged = []
     i = j = 0
     
@@ -25,6 +27,7 @@ def merge(left, right):
     
     merged.extend(left[i:])
     merged.extend(right[j:])
+    print("merged:", merged)
     return merged
 
 if __name__ == "__main__":
@@ -33,10 +36,10 @@ if __name__ == "__main__":
     
     # Split the input and convert to integers
     input_list = numbers.split(',')
-    print(f"input_list: {input_list}")
+    print("input_list:", input_list)
     
     value_list = [int(x.strip()) for x in input_list]
-    print(f"value_list: {value_list}")
+    print("value_list:", value_list)
     
     # Call mergesort
     sorted_list = mergesort(value_list)
